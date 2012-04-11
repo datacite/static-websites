@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>DataCite Developer Machine</title> 
+<link rel="stylesheet" type="text/css" href="main.css" /> 
+</head>
+<body>
+
+<h1><img src="https://mds.datacite.org/resources/images/dc-logo.gif"> DataCite Test Machine</img></h1>  
+<p>This machine runs all our services for testing purposes.</p>
+<p>This is a closed system, so e.g. minted DOIs show only up in the test handle server, uploaded metadata only in the test search instance, etc.</p>
+<p>Visit <a href="http://github.com/datacite/">DataCite on GitHub</a> for source code or issues.</p>
+<p>If you have any questions please contact us via <a href="mailto:tech@datacite.org">tech@datacite.org</a>.</p>
+
+<h2><a href="https://dev.datacite.org/mds">Metadata Store</a></h2>
+This is a development version of MDS for testing new features in MDS. It is configured as close as possible to our production version of MDS, but there are some differences:
+
+<ul>
+  <li>Metadata: The namespace and schemaLocation in your xml have to start <code>http://schema.datacite.org/meta/</code>. However the metadata is validated via our <a href="http://dev.datacite.org/schema">test schema instance</a>. So you can even pick a non-released schema version.
+  </li>
+  <li>E-Mails are currently disabled. If you have forgotton your password, please ask us to reset it.</li>
+
+</ul>
+
+If you need an account please send a e-mail to <a href="mailto:tech@datacite.org">tech@datacite.org</a>.
+
+<h2><a href="http://dev.datacite.org:8000">Handle Server</a></h2>
+A Handle Server for testing purposes. It is not connected to the Global Handle Registry.
+
+<h2><a href="http://dev.datacite.org/schema">Schema</a></h2>
+Hosting of schemas supported by test MDS.
+
+<h2><a href="http://dev.datacite.org/search">Search</a></h2>
+This test search instance pull latest updates from MDS every 10 minutes. 
+
+<h2><a href="http://dev.datacite.org/oaip">OAI</a></h2>
+Test OAI-PMH instance.
+
+<h2><a href="http://dev.datacite.org/data">Content Resolver</a></h2>
+Test content resolver instance.
+
+</body>
+</html>
