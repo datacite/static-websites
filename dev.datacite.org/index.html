@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>DataCite Developer Machine</title> 
+<link rel="stylesheet" type="text/css" href="main.css" /> 
+</head>
+<body>
+
+<h1><img src="https://mds.datacite.org/resources/images/dc-logo.gif"> DataCite Developer Machine</img></h1>  
+<p>This machine runs several services used for testing, building and monitoring DataCite's infrastructure.</p>
+<p>Visit <a href="http://github.com/datacite/">DataCite on GitHub</a> for source code or issues.</p>
+<p>If you have any questions please contact us via <a href="mailto:tech@datacite.org">tech@datacite.org</a>.</p>
+
+
+
+<h2>Test Instances</h2>
+
+We have set up instance of all our service for testing purposes. This is a closed system, so e.g. minted DOIs show only up in the test handle server, uploaded metadata only in the test search instance, etc.
+
+<h3><a href="https://dev.datacite.org/mds">Metadata Store</a></h3>
+This is a development version of MDS for testing new features in MDS. It is configured as close as possible to our production version of MDS, but there are some differences:
+
+<ul>
+  <li>Metadata: The namespace and schemaLocation in your xml have to start <code>http://schema.datacite.org/meta/</code>. However the metadata is validated via our <a href="http://dev.datacite.org/schema">test schema instance</a>. So you can even pick a non-released schema version.
+  </li>
+  <li>E-Mails are currently disabled. If you have forgotton your password, please ask us to reset it.</li>
+
+</ul>
+
+If you need an account please send a e-mail to <a href="mailto:tech@datacite.org">tech@datacite.org</a>.
+
+<h3><a href="http://dev.datacite.org:8000">Handle Server</a></h3>
+A Handle Server for testing purposes. It is not connected to the Global Handle Registry.
+
+<h3><a href="http://dev.datacite.org/schema">Schema</a></h3>
+Hosting of schemas supported by test MDS.
+
+<h3><a href="http://dev.datacite.org/search">Search</a></h3>
+This test search instance pull latest updates from MDS every 10 minutes. 
+
+<h3><a href="http://dev.datacite.org/oaip">OAI</a></h3>
+Test OAI-PMH instance.
+
+<h3><a href="http://dev.datacite.org/data">Content Resolver</a></h3>
+Test content resolver instance.
+
+<h2>Development</h2>
+
+<h3><a href="http://dev.datacite.org/jenkins">Jenkins</a></h3>
+Jenkins is our Continous Integration server. You can see the build status of the latest developer snapshots of all projects. This is <i>not</i> a status page for the currently running infrastructure.
+
+<ul>
+  <li><a href="http://dev.datacite.org/jenkins/job/mds-check/Translation_Report/?">Latest Translation Report</a> for MDS</li>
+</ul>
+</body>
+</html>
