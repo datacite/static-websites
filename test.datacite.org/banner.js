@@ -30,7 +30,7 @@ if (typeof String.prototype.startsWith != 'function') {
 	}, {
 		"path" : "/data",
 		"name" : "Content Resolver",
-		"github" : "edzuk/content-resolver",
+		"github" : "edzuk/content-resolver"
 	}, {
 		"path" : "/handle",
 		"name" : "Handle Server"
