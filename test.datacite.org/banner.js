@@ -14,16 +14,23 @@ if (typeof String.prototype.startsWith != 'function') {
 		"jenkins" : "mds"
 	}, {
 		"path" : "/search",
-		"name" : "Search"
+		"name" : "Search",
+		"github" : "datacite/search",
+		"jenkins" : "search"
 	}, {
 		"path" : "/schema",
-		"name" : "Schema"
+		"name" : "Schema",
+		"github" : "datacite/schema",
+		"jenkins" : "schema"
 	}, {
 		"path" : "/oaip",
-		"name" : "OAI-PMH"
+		"name" : "OAI-PMH",
+		"github" : "datacite/OAIP",
+		"jenkins" : "oaip"
 	}, {
 		"path" : "/data",
-		"name" : "Content Resolver"
+		"name" : "Content Resolver",
+		"github" : "edzuk/content-resolver",
 	}, {
 		"path" : "/handle",
 		"name" : "Handle Server"
