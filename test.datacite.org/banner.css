@@ -1,0 +1,14 @@
+body {
+    margin-top: 50px;
+}
+
+#testinfo {
+    background-color: red;
+    color: white;
+    position: fixed ;
+    left: 0px;
+    top: 0px;
+    padding: 5pt;
+    width: 100%;
+    text-align: center;
+}
