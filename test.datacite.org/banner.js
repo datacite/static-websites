@@ -9,7 +9,9 @@ if (typeof String.prototype.startsWith != 'function') {
 (function($) {
 	var datacite_services = [ {
 		"path" : "/mds",
-		"name" : "Metadata Store"
+		"name" : "Metadata Store",
+		"github" : "datacite/mds",
+		"jenkins" : "mds"
 	}, {
 		"path" : "/search",
 		"name" : "Search"
@@ -32,6 +34,7 @@ if (typeof String.prototype.startsWith != 'function') {
 		$("body").prepend(banner);
 		
 		addToolbar();
+		addToolbar2();
 		if ($(location).attr('pathname') != "/")
 			addTestinfo();
 
@@ -53,6 +56,27 @@ if (typeof String.prototype.startsWith != 'function') {
 		div.append(ul);
 		$("#banner").append(div);
 	}
+
+	function addToolbar2() {
+		var ul = $("<ul>");
+		var service = datacite_services[0];
+		if (service.github) {
+			var url = "https://github.com/" + service.github;
+			var a = $("<a>").text("Code").attr("href", url);
+			ul.append($("<li>").append(a));
+			var a = $("<a>").text("Tickets").attr("href", url + "/issues");
+			ul.append($("<li>").append(a));
+		}
+		if (service.jenkins) {
+			var url = "http://dev.datacite.org/jenkins/job/" + service.jenkins;
+			var a = $("<a>").text("Jenkins").attr("href", url);
+			ul.append($("<li>").append(a));
+		}
+		var div = $("<div>").attr("id", "toolbar2");
+		div.append(ul);
+		$("#banner").append(div);
+	}
+	
 	
 	function addTestinfo() {
 		var div = $("<div>").attr("id", "testinfo");
