@@ -1,5 +1,11 @@
 var banner_jquery = $.noConflict(true);
 
+if (typeof String.prototype.startsWith != 'function') {
+	  String.prototype.startsWith = function (str){
+	    return this.indexOf(str) == 0;
+	  };
+	}
+
 (function($) {
 	var datacite_services = [ {
 		"path" : "/mds",
@@ -37,6 +43,8 @@ var banner_jquery = $.noConflict(true);
 		$(datacite_services).each(function(idx, service) {
 			var li = $("<li>");
 			var a = $("<a>").text(service.name).attr("href", service.path);
+			if ($(location).attr('pathname').startsWith(service.path)) 
+				a.addClass("highlight");
 			li.append(a);
 			ul.append(li);
 		});

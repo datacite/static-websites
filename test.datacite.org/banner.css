@@ -51,3 +51,7 @@
 #banner a:hover {
 	color: #77C9EA;
 }
+
+.highlight {
+	color: #77C9EA !important;
+}
