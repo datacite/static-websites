@@ -1,3 +1,7 @@
+var banner_jquery = $.noConflict(true);
+
+(function($) {
+
 var datacite_services = [ {
 	"path" : "/mds",
 	"name" : "Metadata Store"
@@ -30,3 +34,4 @@ $(document).ready(function() {
 	
 	$("#banner").append(span, ul);
 })
+})(banner_jquery);
