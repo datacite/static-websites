@@ -67,6 +67,8 @@ if (typeof String.prototype.startsWith != 'function') {
 	function addToolbar2() {
 		var ul = $("<ul>");
 		var service = getCurrentService();
+		if (service == undefined)
+			return;
 		if (service.github) {
 			var url = "https://github.com/" + service.github;
 			var a = $("<a>").text("Code").attr("href", url);
