@@ -59,7 +59,7 @@ if (typeof String.prototype.startsWith != 'function') {
 
 	function addToolbar2() {
 		var ul = $("<ul>");
-		var service = datacite_services[0];
+		var service = getCurrentService();
 		if (service.github) {
 			var url = "https://github.com/" + service.github;
 			var a = $("<a>").text("Code").attr("href", url);
@@ -77,6 +77,13 @@ if (typeof String.prototype.startsWith != 'function') {
 		$("#banner").append(div);
 	}
 	
+	function getCurrentService() {
+		var services = $.grep(datacite_services, function(service) {
+			return $(location).attr('pathname').startsWith(service.path);
+		});
+		
+		return (services == undefined)?undefined:services[0];
+	}
 	
 	function addTestinfo() {
 		var div = $("<div>").attr("id", "testinfo");
