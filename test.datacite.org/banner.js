@@ -28,6 +28,8 @@ var banner_jquery = $.noConflict(true);
 		addToolbar();
 		if ($(location).attr('pathname') != "/")
 			addTestinfo();
+
+		$("body").css("margin-top", banner.outerHeight(true));
 	}
 	
 	function addToolbar() {
