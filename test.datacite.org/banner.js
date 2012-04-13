@@ -26,7 +26,8 @@ var banner_jquery = $.noConflict(true);
 		$("body").prepend(banner);
 		
 		addToolbar();
-		addTestinfo();
+		if ($(location).attr('pathname') != "/")
+			addTestinfo();
 	}
 	
 	function addToolbar() {
