@@ -20,8 +20,16 @@ var banner_jquery = $.noConflict(true);
 		"path" : "/handle",
 		"name" : "Handle Server"
 	} ];
-
-	$(document).ready(function() {
+	
+	function init() {
+		var banner = $("<div>").attr("id", "banner");
+		$("body").prepend(banner);
+		
+		addToolbar();
+		addTestinfo();
+	}
+	
+	function addToolbar() {
 		var span = $("<span>").text("DataCite Test Services");
 		var ul = $("<ul>");
 		$(datacite_services).each(function(idx, service) {
@@ -32,5 +40,11 @@ var banner_jquery = $.noConflict(true);
 		});
 
 		$("#banner").append(span, ul);
-	})
+	}
+	
+	function addTestinfo() {
+		
+	}
+
+	$(document).ready(init);
 })(banner_jquery);
