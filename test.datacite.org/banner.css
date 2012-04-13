@@ -1,32 +1,27 @@
 body {
-    margin-top: 50px;
+    margin-top: 4em;
+}
+
+#banner {
+    position: fixed ;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
+#toolbar {
+    background-color: black;
+    color: white;
+    padding: 5pt;
+    height: 1em;
 }
 
 #testinfo {
     background-color: red;
     color: white;
-    position: fixed ;
-    left: 0px;
-    top: 0px;
+    clear:both;
     padding: 5pt;
-    width: 100%;
-    text-align: center;
-}
-
-#banner {
-    background-color: black;
-    color: white;
-    position: fixed ;
-    left: 0px;
-    top: 0px;
-    padding: 5pt;
-    width: 100%;
-}
-
-#banner span {
-    color: gray;
-    float: left;
-    margin: 0pt 5pt;
+    height: 1em;
 }
 
 #banner ul {
@@ -38,7 +33,7 @@ body {
 #banner li {
     float: left;
     list-style-type: none;
-    margin: 0pt 5pt;
+    margin-right: 0.8em;
 }
 
 #banner a {

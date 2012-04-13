@@ -30,7 +30,6 @@ var banner_jquery = $.noConflict(true);
 	}
 	
 	function addToolbar() {
-		var span = $("<span>").text("DataCite Test Services");
 		var ul = $("<ul>");
 		$(datacite_services).each(function(idx, service) {
 			var li = $("<li>");
@@ -39,11 +38,15 @@ var banner_jquery = $.noConflict(true);
 			ul.append(li);
 		});
 
-		$("#banner").append(span, ul);
+		var div = $("<div>").attr("id", "toolbar");
+		div.append(ul);
+		$("#banner").append(div);
 	}
 	
 	function addTestinfo() {
-		
+		var div = $("<div>").attr("id", "testinfo");
+		div.text("This is only a test instance of our service.");
+		$("#banner").append(div);
 	}
 
 	$(document).ready(init);
