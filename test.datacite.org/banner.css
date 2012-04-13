@@ -12,3 +12,35 @@ body {
     width: 100%;
     text-align: center;
 }
+
+#banner {
+    background-color: black;
+    color: white;
+    position: fixed ;
+    left: 0px;
+    top: 0px;
+    padding: 5pt;
+    width: 100%;
+}
+
+#banner span {
+    color: gray;
+    float: left;
+    margin: 0pt 5pt;
+}
+
+#banner ul {
+    padding: 0pt;
+    margin: 0pt;
+    display: inline;
+}
+
+#banner li {
+    float: left;
+    list-style-type: none;
+    margin: 0pt 5pt;
+}
+
+#banner a {
+    text-decoration: none;
+}
