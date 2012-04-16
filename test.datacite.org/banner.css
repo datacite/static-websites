@@ -62,3 +62,7 @@
 .highlight {
 	color: #77C9EA !important;
 }
+
+#banner br {
+    clear: both;
+}

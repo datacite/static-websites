@@ -61,6 +61,7 @@ if (typeof String.prototype.startsWith != 'function') {
 
 		var div = $("<div>").attr("id", "toolbar");
 		div.append(ul);
+		div.append($("<br>"));
 		$("#banner").append(div);
 	}
 
@@ -83,6 +84,7 @@ if (typeof String.prototype.startsWith != 'function') {
 		}
 		var div = $("<div>").attr("id", "toolbar2");
 		div.append(ul);
+		div.append($("<br>"));
 		$("#banner").append(div);
 	}
 	
