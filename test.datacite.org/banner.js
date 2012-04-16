@@ -11,7 +11,11 @@ if (typeof String.prototype.startsWith != 'function') {
 		"path" : "/mds",
 		"name" : "Metadata Store",
 		"github" : "datacite/mds",
-		"jenkins" : "mds"
+		"jenkins" : "mds",
+		"links" : [ {
+			"name" : "Translation Status",
+			"url" : "http://dev.datacite.org/jenkins/job/mds-check/Translation_Report/?"
+		} ]
 	}, {
 		"path" : "/search",
 		"name" : "Search",
@@ -72,6 +76,11 @@ if (typeof String.prototype.startsWith != 'function') {
 		if (service.jenkins) {
 			var url = "http://dev.datacite.org/jenkins/job/" + service.jenkins;
 			addToMenu(menu, "Jenkins", url);
+		}
+		if (service.links) {
+			$(service.links).each(function(idx, link) {
+				addToMenu(menu, link.name, link.url);
+			})
 		}
 	}
 	
