@@ -50,31 +50,29 @@ if (typeof String.prototype.startsWith != 'function') {
 	
 	function addToolbar() {
 		var toolbar = createToolBar("toolbar");
-		var ul = $("<ul>");
+		var menu = addMenu(toolbar);
 		$(datacite_services).each(function(idx, service) {
-			var entry = addToToolbarMenu(ul, service.name, service.path);
+			var entry = addToMenu(menu, service.name, service.path);
 			if ($(location).attr('pathname').startsWith(service.path)) 
 				$("a", entry).addClass("highlight");
 		});
-		toolbar.prepend(ul);
 	}
 
 	function addToolbar2() {
 		var toolbar = createToolBar("toolbar2");
-		var ul = $("<ul>");
+		var menu = addMenu(toolbar);
 		var service = getCurrentService();
 		if (service == undefined)
 			return;
 		if (service.github) {
 			var url = "https://github.com/" + service.github;
-			addToToolbarMenu(ul, "Code", url);
-			addToToolbarMenu(ul, "Tickets", url + "/issues");
+			addToMenu(menu, "Code", url);
+			addToMenu(menu, "Tickets", url + "/issues");
 		}
 		if (service.jenkins) {
 			var url = "http://dev.datacite.org/jenkins/job/" + service.jenkins;
-			addToToolbarMenu(ul, "Jenkins", url);
+			addToMenu(menu, "Jenkins", url);
 		}
-		toolbar.prepend(ul);
 	}
 	
 	function createToolBar(id) {
@@ -84,10 +82,16 @@ if (typeof String.prototype.startsWith != 'function') {
 		return div;
 	}
 	
-	function addToToolbarMenu(ul, text, url) {
+	function addMenu(toolbar) {
+		var ul = $("<ul>");
+		toolbar.prepend(ul);
+		return ul;
+	}
+	
+	function addToMenu(menu, text, url) {
 		var a = $("<a>").text(text).attr("href", url);
 		var li = $("<li>").append(a);
-		ul.append(li);
+		menu.append(li);
 		return li;
 	}
 	
