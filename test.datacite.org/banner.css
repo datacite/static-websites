@@ -23,6 +23,8 @@
 #testinfo {
     background-color: red !important;
     clear: both;
+    font-weight: bold;
+    text-align: center;
 }
 
 #banner * {
