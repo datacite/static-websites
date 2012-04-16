@@ -22,7 +22,13 @@
 
 #testinfo {
     background-color: red !important;
-    clear:both;
+    clear: both;
+}
+
+#banner * {
+    font-family: sans-serif;
+    font-size: medium;
+    color: white;
 }
 
 #banner ul {
@@ -35,11 +41,6 @@
     float: left;
     list-style-type: none;
     margin-right: 0.8em;
-}
-
-#banner * {
-    font-family: sans-serif;
-    font-size: medium;
 }
 
 #banner a {
