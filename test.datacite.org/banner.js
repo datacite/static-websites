@@ -49,20 +49,18 @@ if (typeof String.prototype.startsWith != 'function') {
 	}
 	
 	function addToolbar() {
+		var toolbar = createToolBar("toolbar");
 		var ul = $("<ul>");
 		$(datacite_services).each(function(idx, service) {
 			var entry = addToToolbarMenu(ul, service.name, service.path);
 			if ($(location).attr('pathname').startsWith(service.path)) 
 				$("a", entry).addClass("highlight");
 		});
-
-		var div = $("<div>").attr("id", "toolbar");
-		div.append(ul);
-		div.append($("<br>"));
-		$("#banner").append(div);
+		toolbar.prepend(ul);
 	}
 
 	function addToolbar2() {
+		var toolbar = createToolBar("toolbar2");
 		var ul = $("<ul>");
 		var service = getCurrentService();
 		if (service == undefined)
@@ -76,10 +74,14 @@ if (typeof String.prototype.startsWith != 'function') {
 			var url = "http://dev.datacite.org/jenkins/job/" + service.jenkins;
 			addToToolbarMenu(ul, "Jenkins", url);
 		}
-		var div = $("<div>").attr("id", "toolbar2");
-		div.append(ul);
+		toolbar.prepend(ul);
+	}
+	
+	function createToolBar(id) {
+		var div = $("<div>").attr("id", id);
 		div.append($("<br>"));
 		$("#banner").append(div);
+		return div;
 	}
 	
 	function addToToolbarMenu(ul, text, url) {
@@ -98,9 +100,8 @@ if (typeof String.prototype.startsWith != 'function') {
 	}
 	
 	function addTestinfo() {
-		var div = $("<div>").attr("id", "testinfo");
-		div.text("This is only a test instance of our service.");
-		$("#banner").append(div);
+		var toolbar = createToolBar("testinfo");
+		toolbar.text("This is only a test instance of our service.");
 	}
 
 	$(document).ready(init);
