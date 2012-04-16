@@ -114,7 +114,7 @@ if (typeof String.prototype.startsWith != 'function') {
 	
 	function addTestinfo() {
 		var toolbar = createToolBar("testinfo");
-		toolbar.text("This is only a test instance of our service.");
+		toolbar.text("This service is for testing only.");
 	}
 
 	$(document).ready(init);
