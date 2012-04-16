@@ -51,12 +51,9 @@ if (typeof String.prototype.startsWith != 'function') {
 	function addToolbar() {
 		var ul = $("<ul>");
 		$(datacite_services).each(function(idx, service) {
-			var li = $("<li>");
-			var a = $("<a>").text(service.name).attr("href", service.path);
+			var entry = addToToolbarMenu(ul, service.name, service.path);
 			if ($(location).attr('pathname').startsWith(service.path)) 
-				a.addClass("highlight");
-			li.append(a);
-			ul.append(li);
+				$("a", entry).addClass("highlight");
 		});
 
 		var div = $("<div>").attr("id", "toolbar");
@@ -72,20 +69,24 @@ if (typeof String.prototype.startsWith != 'function') {
 			return;
 		if (service.github) {
 			var url = "https://github.com/" + service.github;
-			var a = $("<a>").text("Code").attr("href", url);
-			ul.append($("<li>").append(a));
-			var a = $("<a>").text("Tickets").attr("href", url + "/issues");
-			ul.append($("<li>").append(a));
+			addToToolbarMenu(ul, "Code", url);
+			addToToolbarMenu(ul, "Tickets", url + "/issues");
 		}
 		if (service.jenkins) {
 			var url = "http://dev.datacite.org/jenkins/job/" + service.jenkins;
-			var a = $("<a>").text("Jenkins").attr("href", url);
-			ul.append($("<li>").append(a));
+			addToToolbarMenu(ul, "Jenkins", url);
 		}
 		var div = $("<div>").attr("id", "toolbar2");
 		div.append(ul);
 		div.append($("<br>"));
 		$("#banner").append(div);
+	}
+	
+	function addToToolbarMenu(ul, text, url) {
+		var a = $("<a>").text(text).attr("href", url);
+		var li = $("<li>").append(a);
+		ul.append(li);
+		return li;
 	}
 	
 	function getCurrentService() {
