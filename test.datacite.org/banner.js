@@ -36,6 +36,10 @@ if (typeof String.prototype.startsWith != 'function') {
 		"name" : "Content Resolver",
 		"github" : "edzuk/content-resolver"
 	}, {
+		"path" : "/stats",
+		"name" : "Stats",
+		"github" : "datacite/stats-portal"
+	}, {
 		"path" : "/handle",
 		"name" : "Handle Server"
 	} ];
