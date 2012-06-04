@@ -6,6 +6,7 @@
     margin-bottom: 1ex;
     background-color: black;
     color: white;
+    z-index: 100;
 }
 
 #banner > div {
