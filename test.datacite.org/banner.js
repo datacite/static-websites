@@ -34,7 +34,7 @@ if (typeof String.prototype.startsWith != 'function') {
 	}, {
 		"path" : "/data",
 		"name" : "Content Resolver",
-		"github" : "edzuk/content-resolver"
+		"github" : "datacite/content-resolver"
 	}, {
 		"path" : "/stats",
 		"name" : "Stats",
