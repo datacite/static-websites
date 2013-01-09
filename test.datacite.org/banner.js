@@ -42,6 +42,9 @@ if (typeof String.prototype.startsWith != 'function') {
 	}, {
 		"path" : "/handle",
 		"name" : "Handle Server"
+	}, {
+		"path" : "/status",
+		"name" : "Status Dashboard"
 	} ];
 	
 	function init() {
