@@ -1,14 +1,9 @@
 var banner_jquery = $.noConflict(true);
 
-if (typeof String.prototype.startsWith != 'function') {
-	  String.prototype.startsWith = function (str){
-	    return this.indexOf(str) == 0;
-	  };
-	}
-
 (function($) {
+	var base_host = "test.datacite.org"
 	var datacite_services = [ {
-		"path" : "/mds",
+		"host" : "mds." + base_host,
 		"name" : "Metadata Store",
 		"github" : "datacite/mds",
 		"jenkins" : "mds",
@@ -17,30 +12,30 @@ if (typeof String.prototype.startsWith != 'function') {
 			"url" : "http://dev.datacite.org/jenkins/job/mds-check/Translation_Report/?"
 		} ]
 	}, {
-		"path" : "/search",
+		"host" : "search." + base_host,
 		"name" : "Search",
 		"github" : "datacite/search",
 		"jenkins" : "search"
 	}, {
-		"path" : "/schema",
+		"host" : "schema." + base_host,
 		"name" : "Schema",
 		"github" : "datacite/schema",
 		"jenkins" : "schema"
 	}, {
-		"path" : "/oaip",
+		"host" : "oai." + base_host,
 		"name" : "OAI-PMH",
 		"github" : "datacite/OAIP",
 		"jenkins" : "oaip"
 	}, {
-		"path" : "/data",
+		"host" : "data." + base_host,
 		"name" : "Content Resolver",
 		"github" : "datacite/content-resolver"
 	}, {
-		"path" : "/stats",
+		"host" : "stats." + base_host,
 		"name" : "Stats",
 		"github" : "datacite/stats-portal"
 	}, {
-		"path" : "/handle",
+		"host" : "handle." + base_host,
 		"name" : "Handle Server"
 	} ];
 	
@@ -50,7 +45,7 @@ if (typeof String.prototype.startsWith != 'function') {
 		
 		addToolbar();
 		addToolbar2();
-		if ($(location).attr('pathname') != "/")
+		if ($(location).attr('hostname') != base_host)
 			addTestinfo();
 
 		$("body").css("margin-top", banner.outerHeight(true));
@@ -60,8 +55,8 @@ if (typeof String.prototype.startsWith != 'function') {
 		var toolbar = createToolBar("toolbar");
 		var menu = addMenu(toolbar);
 		$(datacite_services).each(function(idx, service) {
-			var entry = addToMenu(menu, service.name, service.path);
-			if ($(location).attr('pathname').startsWith(service.path)) 
+			var entry = addToMenu(menu, service.name, "//" + service.host);
+			if ($(location).attr('hostname') == service.host) 
 				$("a", entry).addClass("highlight");
 		});
 	}
@@ -110,7 +105,7 @@ if (typeof String.prototype.startsWith != 'function') {
 	
 	function getCurrentService() {
 		var services = $.grep(datacite_services, function(service) {
-			return $(location).attr('pathname').startsWith(service.path);
+			return $(location).attr('hostname') == service.host;
 		});
 		
 		return (services == undefined)?undefined:services[0];
