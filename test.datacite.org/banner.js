@@ -3,6 +3,9 @@ var banner_jquery = $.noConflict(true);
 (function($) {
 	var base_host = "test.datacite.org"
 	var datacite_services = [ {
+		"host" : base_host,
+		"name" : "Test Environment"
+	}, {
 		"host" : "mds." + base_host,
 		"name" : "Metadata Store",
 		"github" : "datacite/mds",
